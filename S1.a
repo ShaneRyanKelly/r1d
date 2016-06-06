@@ -1,0 +1,34 @@
+          !register
+; Shane Kelly    Thu Apr 21 07:57:08 2016
+; Output from S1 compiler
+;    x = +3 + -2 + 1;
+          ldc       2
+          st        x
+;    y = x;
+          st        y
+;    z = x*(2 + y) + (((4099)));
+          add       @2
+          mult      x
+          add       @4099
+          st        z
+;    println(z + x + -2);
+          add       x
+          add       @_2
+          dout
+          ldc       '\n'
+          aout
+;    println(4107); 
+          ld        @4107
+          dout
+          ldc       '\n'
+          aout
+          
+          halt
+
+x:        dw        0
+@_2:      dw        -2
+y:        dw        0
+z:        dw        0
+@2:       dw        2
+@4099:    dw        4099
+@4107:    dw        4107
